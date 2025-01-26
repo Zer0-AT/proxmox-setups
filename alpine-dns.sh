@@ -37,7 +37,7 @@ setup_vm_pm() {
     rc-update add qemu-guest-agent default
 
     # Service start
-    read -p "Would you like to start the QEMU Guest Agent now? (y/n): " start_service
+    read -p "Should the Technitium DNS Server be started? (y/n):: " start_service
     if [ "$start_service" = "y" ]; then
         rc-service qemu-guest-agent start
     fi
