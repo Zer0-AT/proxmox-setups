@@ -14,10 +14,12 @@ setup_technitium() {
 
 name=$RC_SVCNAME
 description="Technitium DNS Server"
-supervisor="supervise-daemon"
-command="/usr/bin/dotnet"
-command_args="/opt/technitium/dns/DnsServerApp.dll /etc/dns"
+pidfile="/run/${RC_SVCNAME}.pid"
+supervisor=supervise-daemon
 supervise_daemon_args="-d /opt/technitium/dns"
+
+command="/opt/technitium/dns/start.sh"
+command_background=true
 EOF
 
     chmod +x /etc/init.d/technitium
